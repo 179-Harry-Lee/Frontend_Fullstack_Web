@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { FormattedMessage } from "react-intl";
 import { connect } from "react-redux";
 import { ModalBody, ModalFooter, ModalHeader, Modal } from "reactstrap";
+import { emitter } from "../../utils/emitter";
 class ModalUser extends Component {
   constructor(props) {
     super(props);
@@ -12,12 +13,34 @@ class ModalUser extends Component {
       lastName: "",
       address: "",
     };
+
+    this.listenToEmitter();
+  }
+
+  listenToEmitter() {
+    emitter.on("EVENT_CLEAR_MODAL_DATA", () => {
+      this.resetFormAddNewUser();
+    });
+  }
+
+  resetFormAddNewUser() {
+    this.setState({
+      email: "",
+      password: "",
+      firstName: "",
+      lastName: "",
+      address: "",
+    });
   }
 
   componentDidMount() {}
 
   toggle = () => {
     this.props.toggleFromParent();
+  };
+
+  cancelButton = () => {
+    this.props.cancelButton();
   };
 
   handleOnchangeInput = (event, id) => {
@@ -42,13 +65,13 @@ class ModalUser extends Component {
     });
   };
 
-  checkValideInput = () => {
+  checkValidInput = () => {
     let isValid = true;
 
     let arrInput = ["email", "password", "firstName", "lastName", "address"];
 
     for (let i = 0; i < arrInput.length; i++) {
-      console.log("check inside loop", this.state[arrInput[i]], arrInput[i]);
+      // console.log("check inside loop", this.state[arrInput[i]], arrInput[i]);
       if (!this.state[arrInput[i]]) {
         isValid = false;
         alert("Missing parameter:" + arrInput[i]);
@@ -60,7 +83,7 @@ class ModalUser extends Component {
 
   handleAddNewUser = () => {
     //validate: check du lieu dung hay sai
-    let isValid = this.checkValideInput();
+    let isValid = this.checkValidInput();
     if (isValid === true) {
       //call API:
       this.props.createNewUser(this.state);
@@ -147,6 +170,15 @@ class ModalUser extends Component {
         </ModalBody>
         <ModalFooter>
           <button
+            color="secondary"
+            className="px-3"
+            onClick={() => {
+              this.resetFormAddNewUser();
+            }}
+          >
+            Reset
+          </button>
+          <button
             color="primary"
             className="px-3"
             onClick={() => {
@@ -160,7 +192,7 @@ class ModalUser extends Component {
             color="secondary"
             className="px-3"
             onClick={() => {
-              this.toggle();
+              this.cancelButton();
             }}
           >
             Cancel

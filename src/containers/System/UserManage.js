@@ -2,8 +2,14 @@ import React, { Component } from "react";
 import { FormattedMessage } from "react-intl";
 import { connect } from "react-redux";
 import "./UserManage.scss";
-import { getAllUsers, createNewUserService } from "../../services/userService";
+import {
+  getAllUsers,
+  createNewUserService,
+  deleteUserService,
+} from "../../services/userService";
 import ModalUser from "./ModalUser";
+import { emitter } from "../../utils/emitter";
+
 class UserManage extends Component {
   constructor(props) {
     super(props);
@@ -32,6 +38,12 @@ class UserManage extends Component {
     });
   };
 
+  cancelButton = () => {
+    this.setState({
+      isOpenModalUser: false,
+    });
+  };
+
   toggleUserModal = () => {
     this.setState({
       isOpenModalUser: !this.state.isOpenModalUser,
@@ -48,6 +60,21 @@ class UserManage extends Component {
         this.setState({
           isOpenModalUser: false,
         });
+        emitter.emit("EVENT_CLEAR_MODAL_DATA");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  handleDeleteUser = async (user) => {
+    // console.log("click Delete", user);
+    try {
+      let res = await deleteUserService(user.id);
+      if (res && res.errCode === 0) {
+        await this.getAllUsersFromReact();
+      } else {
+        alert(res.errMessage);
       }
     } catch (error) {
       console.log(error);
@@ -62,6 +89,7 @@ class UserManage extends Component {
           isOpen={this.state.isOpenModalUser}
           toggleFromParent={this.toggleUserModal}
           createNewUser={this.createNewUser}
+          cancelButton={this.cancelButton}
         />
         <div className="title text-center">Daniel Dung</div>
         <div className="mx-1">
@@ -85,7 +113,7 @@ class UserManage extends Component {
 
               {arrUsers &&
                 arrUsers.map((item, index) => {
-                  console.log(" check map", item, index);
+                  // console.log(" check map", item, index);
                   return (
                     <tr key={index}>
                       <td>{item.email}</td>
@@ -99,7 +127,12 @@ class UserManage extends Component {
                         >
                           <i className="fas fa-pencil-alt"></i>
                         </button>
-                        <button className="btn-delete">
+                        <button
+                          className="btn-delete"
+                          onClick={() => {
+                            this.handleDeleteUser(item);
+                          }}
+                        >
                           <i className="fas fa-trash"></i>
                         </button>
                       </td>
