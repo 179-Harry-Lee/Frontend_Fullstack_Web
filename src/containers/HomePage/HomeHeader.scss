@@ -57,17 +57,28 @@
                 }
             }
 
-            .language-vn{
+            .language-vi{
                 cursor: pointer;
-                &:active{
+                opacity: 0.2;
+                &.active{
+                    opacity: 1;
                     color:orange;
+                    
+                }
+                &:hover{
+                    opacity: 1;
                 }
             }
             .language-en{
                 margin: 0 10px;
                 cursor: pointer;
-                &:active{
-                    color: blue;
+                opacity: 0.2;
+                &.active{
+                    opacity: 1;
+                    color: red;
+                }
+                &:hover{
+                    opacity: 1;
                 }
             }
 
