@@ -7,6 +7,8 @@ import * as actions from "../../../store/actions";
 import "./UserRedux.scss";
 import Lightbox from "react-image-lightbox";
 import "react-image-lightbox/style.css";
+import TableManageUser from "./TableManageUser";
+
 class UserRedux extends Component {
   constructor(props) {
     super(props);
@@ -27,6 +29,15 @@ class UserRedux extends Component {
       position: "",
       role: "",
       image: "",
+
+      arrCheck: {
+        email: "Email",
+        password: "Mật khẩu",
+        firstName: "Tên",
+        lastName: "Họ",
+        phoneNumber: "Số điện thoại",
+        address: "Địa chỉ",
+      },
     };
   }
 
@@ -71,6 +82,21 @@ class UserRedux extends Component {
         role: arrRoles && arrRoles.length > 0 ? arrRoles[0].key : "",
       });
     }
+
+    if (prevProps.listUsers !== this.props.listUsers) {
+      this.setState({
+        email: "",
+        password: "",
+        firstName: "",
+        lastName: "",
+        address: "",
+        phoneNumber: "",
+        gender: "",
+        position: "",
+        role: "",
+        image: "",
+      });
+    }
   }
 
   handleOnchangeImage = (event) => {
@@ -110,20 +136,62 @@ class UserRedux extends Component {
     });
   };
 
+  // checkValidateInput = () => {
+  //   let isValid = true;
+  //   let arrCheck = [
+  //     "email",
+  //     "password",
+  //     "firstName",
+  //     "lastName",
+  //     "phoneNumber",
+  //     "address",
+  //   ];
+  //   for (let i = 0; i < arrCheck.length; i++) {
+  //     if (!this.state[arrCheck[i]]) {
+  //       isValid = false;
+  //       alert("This input is required:" + arrCheck[i]);
+  //       break;
+  //     }
+  //   }
+  //   return isValid;
+  // };
+
   checkValidateInput = () => {
     let isValid = true;
-    let arrCheck = [
-      "email",
-      "password",
-      "firstName",
-      "lastName",
-      "phoneNumber",
-      "address",
-    ];
-    for (let i = 0; i < arrCheck.length; i++) {
-      if (!this.state[arrCheck[i]]) {
+    if (this.props.language === "en") {
+      this.setState({
+        arrCheck: {
+          email: "Email",
+          password: "Password",
+          firstName: "First name",
+          lastName: "Last name",
+          phoneNumber: "Phone number",
+          address: "Address",
+        },
+      });
+    } else {
+      this.setState({
+        arrCheck: {
+          email: "Email",
+          password: "Mật khẩu",
+          firstName: "Tên",
+          lastName: "Họ",
+          phoneNumber: "Số điện thoại",
+          address: "Địa chỉ",
+        },
+      });
+    }
+    // console.log('check state: ', this.state);
+    for (let i = 0; i < Object.keys(this.state.arrCheck).length; i++) {
+      let key = Object.keys(this.state.arrCheck)[i];
+      // console.log('key: ', key);
+      if (!this.state[key]) {
         isValid = false;
-        alert("This input is required:" + arrCheck[i]);
+        if (this.props.language === "en") {
+          alert("This input is required: " + this.state.arrCheck[key]);
+        } else {
+          alert("Ô dữ liệu cần phải nhập vào: " + this.state.arrCheck[key]);
+        }
         break;
       }
     }
@@ -188,7 +256,7 @@ class UserRedux extends Component {
                   <FormattedMessage id="manage-user.password" />
                 </label>
                 <input
-                  type="pasword"
+                  type="password"
                   className="form-control"
                   value={password}
                   onChange={(event) => {
@@ -348,8 +416,12 @@ class UserRedux extends Component {
                   <FormattedMessage id="manage-user.save" />
                 </button>
               </div>
+              <div className="col-12 mt-2 mb-5">
+                <TableManageUser />
+              </div>
             </div>
           </div>
+
           {this.state.isOpen === true && (
             <Lightbox
               mainSrc={this.state.previewImgUrl}
@@ -369,6 +441,7 @@ const mapStateToProps = (state) => {
     roleRedux: state.admin.roles,
     positionRedux: state.admin.positions,
     isLoadingGender: state.admin.isLoadingGender,
+    listUsers: state.admin.users,
   };
 };
 
@@ -381,6 +454,9 @@ const mapDispatchToProps = (dispatch) => {
     getRoleStart: () => dispatch(actions.fetchRoleStart()),
 
     createNewUser: (data) => dispatch(actions.createNewUser(data)),
+
+    fetchUserRedux: () => dispatch(actions.fetchAllUsersStart()),
+
     // processLogout: () => dispatch(actions.processLogout()),
     // changeLanguageAppRedux: (language) =>
     //   dispatch(actions.changeLanguageApp(language)),
