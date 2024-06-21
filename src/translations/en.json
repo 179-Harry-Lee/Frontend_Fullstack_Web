@@ -12,9 +12,9 @@
         "welcome": "Welcome, "
     },
     "banner":{
-        "title1": "MEDICAL BACKGROUND",
+        "title1": "MEDICAL PLATFORM",
         "title2": "COMPREHENSIVE HEALTH CARE",
-        "search":"Find a medical specialist",
+        "search": "Find a medical specialist",
         "child1": "Specialized examination",
         "child2": "Remote examination",
         "child3": "General examination",
@@ -52,5 +52,9 @@
         "image": "Image",
         "save": "Save user",
         "edit": "Edit user"
+    },
+    "homepage":{
+        "outstanding-doctor": "Last week's featured doctor",
+        "more-info": "More Information"
     }
 }
