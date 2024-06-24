@@ -24,7 +24,7 @@ class HomePage extends Component {
     };
     return (
       <div>
-        <HomeHeader />
+        <HomeHeader isShowBanner={true} />
         <Specialty settings={settings} />
         {/* <div style={{ height: "300px" }}></div> */}
         <MedicalFacility settings={settings} />
