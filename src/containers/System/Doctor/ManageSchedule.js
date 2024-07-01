@@ -128,9 +128,15 @@ class ManageSchedule extends Component {
       doctorId: selectedOption.value,
       formattedDate: formattedDate,
     });
+    if (res && res.errCode === 0) {
+      toast.success("Create Success");
+    } else {
+      toast.error("Create error");
+    }
 
     console.log("check res", res);
   };
+
   render() {
     let { rangeTime } = this.state;
     let { language } = this.props;
