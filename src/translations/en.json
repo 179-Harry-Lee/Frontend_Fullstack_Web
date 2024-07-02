@@ -1,77 +1,85 @@
 {
-    "homeheader": {
-        "speciality":"Medical specialty",
-        "searchdoctor":"Find a doctor by specialty",
-        "health-facility":"Health facilities",
-        "select-room":"Choose hospital clinic",
-        "doctor": "Doctor",
-        "select-doctor":"Choose a good doctor",
-        "fee": "Checkup package",
-        "check-health": "General health check",
-        "support": "Support",
-        "welcome": "Welcome, "
+  "homeheader": {
+    "speciality": "Medical specialty",
+    "searchdoctor": "Find a doctor by specialty",
+    "health-facility": "Health facilities",
+    "select-room": "Choose hospital clinic",
+    "doctor": "Doctor",
+    "select-doctor": "Choose a good doctor",
+    "fee": "Checkup package",
+    "check-health": "General health check",
+    "support": "Support",
+    "welcome": "Welcome, "
+  },
+  "banner": {
+    "title1": "MEDICAL PLATFORM",
+    "title2": "COMPREHENSIVE HEALTH CARE",
+    "search": "Find a medical specialist",
+    "child1": "Specialized examination",
+    "child2": "Remote examination",
+    "child3": "General examination",
+    "child4": "Medical test",
+    "child5": "Mental health",
+    "child6": "Dental health"
+  },
+  "menu": {
+    "admin": {
+      "manage-user": "Users",
+      "manage-doctor": "Doctor manage",
+      "manage-admin": "Admin manage",
+      "crud": "CRUD user",
+      "crud-redux": "CRUD redux",
+      "clinic": "Clinic",
+      "manage-clinic": "Clinic manage",
+      "specialty": "Specialty",
+      "manage-specialty": "Specialty manage",
+      "handbook": "Handbook",
+      "manage-handbook": "Handbook manage"
     },
-    "banner":{
-        "title1": "MEDICAL PLATFORM",
-        "title2": "COMPREHENSIVE HEALTH CARE",
-        "search": "Find a medical specialist",
-        "child1": "Specialized examination",
-        "child2": "Remote examination",
-        "child3": "General examination",
-        "child4": "Medical test",
-        "child5": "Mental health",
-        "child6": "Dental health"
-    },
-    "menu": {
-        "admin":{
-            "manage-user": "Users",
-            "manage-doctor": "Doctor manage",
-            "manage-admin": "Admin manage",
-            "crud": "CRUD user",
-            "crud-redux": "CRUD redux",
-            "clinic":"Clinic",
-            "manage-clinic": "Clinic manage",
-            "specialty":"Specialty",
-            "manage-specialty": "Specialty manage",
-            "handbook":"Handbook",
-            "manage-handbook": "Handbook manage"
-            
-        },
-        "doctor":{
-            "manage-schedule":"Manage Doctor's chedule"
-        }
-    },
-    "manage-user":{
-        "add" : "Add new user",
-        "email":"Email",
-        "password": "Password",
-        "first-name":"First name",
-        "last-name":"Last name",
-        "phone-number":"Phone number",
-        "address": "Address",
-        "gender": "Gender",
-        "position": "Position",
-        "role": "Role",
-        "image": "Image",
-        "save": "Save user",
-        "edit": "Edit user"
-    },
-    "homepage":{
-        "outstanding-doctor": "Last week's featured doctor",
-        "more-info": "More Information"
-    },
-    "manage-schedule":{
-        "title": "Manage doctor's examination plan",
-        "choose-doctor": "Choose doctor",
-        "choose-date":"Choose date",
-        "save": "Save"
-    },
-    "patient": {
-        "detail-doctor": {
-            "schedule": "Schedule",
-            "no-schedule":"The doctor doesn't have an appointment during this time. Please choose another time!",
-            "choose":"Choose ",
-            "book-free":" and book (free)"
-        }
+    "doctor": {
+      "manage-schedule": "Manage Doctor's chedule"
     }
+  },
+  "manage-user": {
+    "add": "Add new user",
+    "email": "Email",
+    "password": "Password",
+    "first-name": "First name",
+    "last-name": "Last name",
+    "phone-number": "Phone number",
+    "address": "Address",
+    "gender": "Gender",
+    "position": "Position",
+    "role": "Role",
+    "image": "Image",
+    "save": "Save user",
+    "edit": "Edit user"
+  },
+  "homepage": {
+    "outstanding-doctor": "Last week's featured doctor",
+    "more-info": "More Information"
+  },
+  "manage-schedule": {
+    "title": "Manage doctor's examination plan",
+    "choose-doctor": "Choose doctor",
+    "choose-date": "Choose date",
+    "save": "Save"
+  },
+  "patient": {
+    "detail-doctor": {
+      "schedule": "Schedule",
+      "no-schedule": "The doctor doesn't have an appointment during this time. Please choose another time!",
+      "choose": "Choose ",
+      "book-free": " and book (free)"
+    }
+  },
+  "admin": {
+    "manage-doctor": {
+      "title": " Create more information doctor ",
+      "select-doctor": "Select doctor",
+      "intro": "Introduction:",
+      "add":"Create info",
+      "save":"Save info"
+    }
+  }
 }
