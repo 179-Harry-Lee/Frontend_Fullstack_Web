@@ -1,63 +1,70 @@
-.doctor-detail-container{
+.doctor-detail-container {
     height: 500px;
-    .intro-doctor{
-        display: flex;
-        margin: 0 100px;
 
-        .content-left{
-            width: 20%;
-            background: center center no-repeat;
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            margin: 10px 20px;
+    .intro-doctor {
+        display: flex;
+        margin : 0 100px;
+
+        .content-left {
+            width          : 20%;
+            background     : center center no-repeat;
+            width          : 120px;
+            height         : 120px;
+            border-radius  : 50%;
+            margin         : 10px 20px;
             background-size: cover;
         }
-        .content-right{
-            width: 80%;
-            display: flex;
+
+        .content-right {
+            width         : 80%;
+            display       : flex;
             flex-direction: column;
-            padding-left: 10px;
-            .up{
+            padding-left  : 10px;
+
+            .up {
                 padding-top: 15px;
-                font-size: 20px;
+                font-size  : 20px;
                 font-weight: 600;
             }
-            .down{
+
+            .down {
                 padding-top: 10px;
             }
         }
     }
 
-    .schedule-doctor{
-        margin: 0 100px;
+    .schedule-doctor {
+        margin : 0 100px;
         display: flex;
-        height: 250px;
+        height : 250px;
         padding: 10px 0;
-        
-        
-        .content-left{
+
+
+        .content-left {
             width: 50%;
         }
-        .content-right{
+
+        .content-right {
             width: 50%;
         }
     }
 
-    .detail-info-doctor{
-        border-top: 1px solid #ddd;
-        border-bottom: 1px solid #ddd;
+    .detail-info-doctor {
+        border-top      : 1px solid #ddd;
+        border-bottom   : 1px solid #ddd;
         background-color: #f9f9f9;
-        padding: 10px 100px;
+        padding         : 10px 100px;
 
-        h3{
+        h3 {
             font-size: 17px;
         }
-        img{
+
+        img {
             // width: 100%;
         }
     }
-    .comment-doctor{
+
+    .comment-doctor {
         height: 50px;
     }
 }

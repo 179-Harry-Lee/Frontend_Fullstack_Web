@@ -31,14 +31,12 @@ class DetailDoctor extends Component {
           detailDoctor: res.data,
         });
       }
-      console.log("Check res:", res);
     }
   }
 
   componentDidUpdate(prevProps, prevState, snapshot) {}
 
   render() {
-    console.log("Check state", this.state);
     let { language } = this.props;
     let { detailDoctor } = this.state;
     let nameVi = "";
@@ -90,9 +88,7 @@ class DetailDoctor extends Component {
                   dangerouslySetInnerHTML={{
                     __html: detailDoctor.Markdown.contentHTML,
                   }}
-                >
-                  {}
-                </div>
+                ></div>
               )}
           </div>
           <div className="comment-doctor"></div>
