@@ -11,6 +11,7 @@ import { LANGUAGES } from "../../../../utils";
 import Select from "react-select";
 import { postPatientBookAppointment } from "../../../../services/userService";
 import { toast } from "react-toastify";
+import moment from "moment";
 class BookingModal extends Component {
   constructor(props) {
     super(props);
@@ -90,10 +91,42 @@ class BookingModal extends Component {
     this.setState({ selectedGender: selectedOption });
   };
 
+  buildTimeBooking = (dataTime) => {
+    let { language } = this.props;
+    if (dataTime && !_.isEmpty(dataTime)) {
+      let time =
+        language === LANGUAGES.VI
+          ? dataTime.timeTypeData.valueVi
+          : dataTime.timeTypeData.valueEn;
+      let date =
+        language === LANGUAGES.VI
+          ? moment.unix(+dataTime.date / 1000).format("dddd - DD/MM/YYYY")
+          : moment
+              .unix(+dataTime.date / 1000)
+              .locale("en")
+              .format("ddd - MM/DD/YYYY");
+      return `${time} - ${date}`;
+    }
+    return <></>;
+  };
+
+  buildDoctorName = (dataTime) => {
+    let { language } = this.props;
+    if (dataTime && !_.isEmpty(dataTime)) {
+      let name =
+        language === LANGUAGES.VI
+          ? `${dataTime.doctorData.lastName} ${dataTime.doctorData.firstName}`
+          : `${dataTime.doctorData.firstName} ${dataTime.doctorData.lastName}`;
+      return name;
+    }
+    return <></>;
+  };
+
   handleConfirmBooking = async () => {
     //validate input
     let date = new Date(this.state.birthday).getTime();
-
+    let timeString = this.buildTimeBooking(this.props.dataTime);
+    let doctorName = this.buildDoctorName(this.props.dataTime);
     let res = await postPatientBookAppointment({
       fullName: this.state.fullName,
       phoneNumber: this.state.fullName,
@@ -104,6 +137,9 @@ class BookingModal extends Component {
       selectedGender: this.state.selectedGender.value,
       doctorId: this.state.doctorId,
       timeType: this.state.timeType,
+      language: this.props.language,
+      timeString: timeString,
+      doctorName: doctorName,
     });
 
     if (res && res.errCode === 0) {
