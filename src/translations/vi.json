@@ -110,7 +110,9 @@
       "addressClinic":"Địa chỉ phòng khám",
       "note":"Ghi chú",
       "add":"Tạo thông tin",
-      "save":"Lưu thông tin"
+      "save":"Lưu thông tin",
+      "specialty": "Chọn chuyên khoa",
+      "select-clinic":"Chọn phòng khám"
     }
   }
 }

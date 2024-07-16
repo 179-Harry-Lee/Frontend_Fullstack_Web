@@ -107,7 +107,9 @@
       "addressClinic":"Clinic's address",
       "note":"Note",
       "add":"Create info",
-      "save":"Save info"
+      "save":"Save info",
+      "specialty":"Specialty",
+      "select-clinic":"Clinic"
     }
   }
 }
