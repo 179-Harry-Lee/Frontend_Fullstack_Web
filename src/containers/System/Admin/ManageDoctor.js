@@ -200,7 +200,8 @@ class ManageDoctor extends Component {
 
   handleChangeSelect = async (selectedDoctor) => {
     this.setState({ selectedDoctor });
-    let { listPayment, listProvince, listPrice } = this.state;
+    let { listPayment, listProvince, listPrice, listSpecialty } = this.state;
+
     let res = await getDetailInfoDoctor(selectedDoctor.value);
     if (res && res.errCode === 0 && res.data && res.data.Markdown) {
       let markdown = res.data.Markdown;
@@ -211,9 +212,12 @@ class ManageDoctor extends Component {
         paymentId = "",
         priceId = "",
         provinceId = "",
+        specialtyId = "",
         selectedPayment = "",
         selectedPrice = "",
-        selectedProvince = "";
+        selectedProvince = "",
+        // selectedClinic = "",
+        selectedSpecialty = "";
 
       if (res.data.Doctor_Info) {
         addressClinic = res.data.Doctor_Info.addressClinic;
@@ -223,6 +227,7 @@ class ManageDoctor extends Component {
         paymentId = res.data.Doctor_Info.paymentId;
         priceId = res.data.Doctor_Info.priceId;
         provinceId = res.data.Doctor_Info.provinceId;
+        specialtyId = res.data.Doctor_Info.specialtyId;
 
         selectedPayment = listPayment.find((item) => {
           return item && item.value === paymentId;
@@ -234,6 +239,10 @@ class ManageDoctor extends Component {
 
         selectedProvince = listProvince.find((item) => {
           return item && item.value === provinceId;
+        });
+
+        selectedSpecialty = listSpecialty.find((item) => {
+          return item && item.value === specialtyId;
         });
       }
 
@@ -248,6 +257,7 @@ class ManageDoctor extends Component {
         selectedPayment: selectedPayment,
         selectedPrice: selectedPrice,
         selectedProvince: selectedProvince,
+        selectedSpecialty: selectedSpecialty,
       });
     } else {
       this.setState({
@@ -261,6 +271,7 @@ class ManageDoctor extends Component {
         selectedPayment: "",
         selectedPrice: "",
         selectedProvince: "",
+        selectedSpecialty: "",
       });
     }
   };
