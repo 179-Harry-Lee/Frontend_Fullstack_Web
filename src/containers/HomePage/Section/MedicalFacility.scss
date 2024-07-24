@@ -1,0 +1,10 @@
+.clinic-child {
+    .clinic-name {
+        padding: 10px 0;
+        cursor : pointer;
+
+        &:hover {
+            color: #45c3d2
+        }
+    }
+}
