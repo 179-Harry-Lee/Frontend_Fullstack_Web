@@ -98,6 +98,7 @@ class App extends Component {
               closeButton={<CustomToastCloseButton />}
             /> */}
             <ToastContainer
+              style={{ zIndex: 100000 }}
               position="top-right"
               autoClose={5000}
               hideProgressBar={false}
