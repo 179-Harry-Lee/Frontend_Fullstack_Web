@@ -21,11 +21,38 @@
                 border    : 1px solid #dddddd;
                 text-align: left;
                 padding   : 8px;
+
+                .mp-btn-confirm {
+                    margin-right: 10px;
+                    height      : 30px;
+                    background  : orange;
+                }
+
+                .mp-btn-remedy {
+                    margin-right: 10px;
+                    height      : 30px;
+                    background  : #39dca0;
+                }
             }
 
-            tr:nth-child(even) {
+            tr:nth-child() {
                 background-color: #dddddd;
+
+                button {
+                    border : none;
+                    outline: none;
+                    cursor : pointer;
+                }
+
+
+
+
             }
+
+
+
+
+
         }
     }
 }

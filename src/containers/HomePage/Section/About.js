@@ -19,10 +19,10 @@ class About extends Component {
               height="400px"
               src="https://www.youtube.com/embed/abPmZCZZrFA"
               title="SƠN TÙNG M-TP | ĐỪNG LÀM TRÁI TIM ANH ĐAU | OFFICIAL MUSIC VIDEO"
-              frameborder="0"
+              frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              referrerpolicy="strict-origin-when-cross-origin"
-              allowfullscreen
+              referrerPolicy="strict-origin-when-cross-origin"
+              allowFullScreen
             ></iframe>
           </div>
           <div className="content-right">
