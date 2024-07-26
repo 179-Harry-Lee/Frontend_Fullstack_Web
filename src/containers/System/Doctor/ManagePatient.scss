@@ -1,3 +1,11 @@
+div._loading_overlay_wrapper {
+    position: unset;
+
+    ._loading_overlay_overlay {
+        z-index: 1000000;
+    }
+}
+
 .manage-patient-container {
     .m-p-title {
         font-size     : 15px;
@@ -23,29 +31,28 @@
                 padding   : 8px;
 
                 .mp-btn-confirm {
-                    margin-right: 10px;
-                    height      : 30px;
-                    background  : orange;
+                    margin-right : 10px;
+                    height       : 30px;
+                    background   : orange;
+                    border       : none;
+                    outline      : none;
+                    cursor       : pointer;
+                    border-radius: 3px;
                 }
 
                 .mp-btn-remedy {
-                    margin-right: 10px;
-                    height      : 30px;
-                    background  : #39dca0;
+                    margin-right : 10px;
+                    height       : 30px;
+                    background   : #39dca0;
+                    border       : none;
+                    outline      : none;
+                    cursor       : pointer;
+                    border-radius: 3px;
                 }
             }
 
             tr:nth-child() {
                 background-color: #dddddd;
-
-                button {
-                    border : none;
-                    outline: none;
-                    cursor : pointer;
-                }
-
-
-
 
             }
 
