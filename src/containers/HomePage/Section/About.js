@@ -11,7 +11,7 @@ class About extends Component {
   render() {
     return (
       <div className="section-share section-about">
-        <div className="section-about-header">Nghe nhạc chơi chơi</div>
+        <div className="section-about-header">Giới thiệu về Website</div>
         <div className="section-about-content">
           <div className="content-left">
             <iframe
@@ -27,8 +27,7 @@ class About extends Component {
           </div>
           <div className="content-right">
             <p>
-              Hãy cùng thưởng thức ca khúc ĐỪNG LÀM TRÁI TIM ANH ĐAU ngay tại
-              đây nhé: 👉🏻 👉🏻 👉🏻{" "}
+              Hãy Đặt Link Ở Đây Chung Tôi Rất Uy Tính
               <a href="https://vivienm.lnk.to/DLTTAD">
                 https://vivienm.lnk.to/DLTTAD
               </a>

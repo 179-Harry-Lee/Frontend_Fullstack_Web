@@ -282,7 +282,9 @@ class UserRedux extends Component {
 
     return (
       <div className="user-redux-container">
-        <div className="title">User Redux Daniel Lee</div>
+        <div className="title">
+          <FormattedMessage id="menu.admin.crud-redux" />
+        </div>
         <div className="user-redux-body">
           <div className="container">
             <div className="row">
@@ -495,13 +497,6 @@ class UserRedux extends Component {
               </div>
             </div>
           </div>
-
-          {this.state.isOpen === true && (
-            <Lightbox
-              mainSrc={this.state.previewImgUrl}
-              onCloseRequest={() => this.setState({ isOpen: false })}
-            />
-          )}
         </div>
       </div>
     );
